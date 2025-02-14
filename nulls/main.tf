@@ -10,7 +10,7 @@ terraform {
   }
 }
 
-variable "pet" {
+variable "pets" {
   type = string
 }
 
@@ -22,7 +22,7 @@ resource "null_resource" "this" {
   count = var.instances
 
   triggers = {
-    pet = var.pet
+    pet = var.pets
   }
 }
 
