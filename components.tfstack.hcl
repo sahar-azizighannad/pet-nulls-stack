@@ -40,7 +40,7 @@ component "nulls" {
   source = "./nulls"
 
   inputs = {
-    pet       = component.pet.name
+    pets       = component.pet.name
     instances = var.instances
   }
 
