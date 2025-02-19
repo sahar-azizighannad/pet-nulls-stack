@@ -11,7 +11,7 @@ terraform {
 }
 
 variable "pets" {
-  type = string
+  type = number
 }
 
 variable "instances" {
