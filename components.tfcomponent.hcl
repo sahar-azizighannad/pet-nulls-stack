@@ -12,6 +12,11 @@ variable "prefix" {
 
 variable "instances" {
   type = number
+
+  validation {
+    condition     = var.instances >= 5
+    error_message = "Instances must be at least 5"
+  }
 }
 
 required_providers {
