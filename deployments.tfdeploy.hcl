@@ -3,7 +3,7 @@
 
 deployment "simple" {
   inputs = {
-    prefix           = "simple"
+    prefix           = "simp"
     instances        = 1
   }
 }

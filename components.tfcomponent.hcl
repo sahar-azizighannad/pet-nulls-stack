@@ -3,6 +3,11 @@
 
 variable "prefix" {
   type = string
+
+  validation {
+    condition     = length(var.prefix) > 5
+    error_message = "Input must be longer than 5 characters."
+  }
 }
 
 variable "instances" {
