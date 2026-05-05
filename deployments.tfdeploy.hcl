@@ -6,11 +6,24 @@ deployment "simple" {
     prefix           = "simple"
     instances        = 1
   }
+  deployment_group = deployment_group.production
 }
 
 deployment "complex" {
   inputs = {
     prefix           = "complex"
     instances        = 3
+  }
+  deployment_group = deployment_group.production
+}
+
+deployment_group "production" {
+  auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
+}
+
+deployment_auto_approve "no_destroy" {
+  check {
+    condition = context.plan.changes.remove == 0
+    reason    = "Plan removes ${context.plan.changes.remove} resources."
   }
 }
