@@ -20,7 +20,7 @@ deployment "complex" {
 deployment_group "production" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
   eager_plan            = "on"
-  failure_tolerance = 3.7
+  failure_tolerance = 5
 }
 
 deployment_auto_approve "no_destroy" {
