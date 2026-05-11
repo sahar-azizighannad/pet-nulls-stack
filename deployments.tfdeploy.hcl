@@ -14,13 +14,11 @@ deployment "complex" {
     prefix           = "complex"
     instances        = 3
   }
-  deployment_group = deployment_group.production
 }
 
 deployment_group "production" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
-  eager_plan            = "on"
-  failure_tolerance = 5
+  failure_tolerance = 7
 }
 
 deployment_auto_approve "no_destroy" {
