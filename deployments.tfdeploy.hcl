@@ -9,7 +9,7 @@ deployment "simple" {
   deployment_group = deployment_group.production_default
 }
 
-deployment "complex" {
+deployment "complex_default" {
   inputs = {
     prefix           = "complex"
     instances        = 3
