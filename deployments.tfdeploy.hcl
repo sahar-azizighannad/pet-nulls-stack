@@ -17,8 +17,17 @@ deployment "complex" {
   deployment_group = deployment_group.production
 }
 
+deployment "test" {
+  inputs = {
+    prefix           = "test"
+    instances        = 1
+  }
+  deployment_group = deployment_group.production
+}
+
 deployment_group "production" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
+  failure_tolerance = 0
 }
 
 deployment_auto_approve "no_destroy" {
