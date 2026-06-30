@@ -140,9 +140,3 @@ deployment "test15" {
   }
 }
 
-deployment "test16" {
-  inputs = {
-    prefix           = "test16"
-    instances        = 1
-  }
-}
