@@ -35,14 +35,6 @@ deployment "oas" {
     instances        = 1
   }
 }
-
-deployment "test" {
-  inputs = {
-    prefix           = "test"
-    instances        = 1
-  }
-}
-
 deployment "test1" {
   inputs = {
     prefix           = "test1"
@@ -151,27 +143,6 @@ deployment "test15" {
 deployment "test16" {
   inputs = {
     prefix           = "test16"
-    instances        = 1
-  }
-}
-
-deployment "test17" {
-  inputs = {
-    prefix           = "test17"
-    instances        = 1
-  }
-}
-
-deployment "test18" {
-  inputs = {
-    prefix           = "test18"
-    instances        = 1
-  }
-}
-
-deployment "test19" {
-  inputs = {
-    prefix           = "test19"
     instances        = 1
   }
 }
