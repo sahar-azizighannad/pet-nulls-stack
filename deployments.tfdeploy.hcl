@@ -133,7 +133,6 @@ deployment "test12" {
     prefix           = "test12"
     instances        = 1
   }
-  deployment_group = deployment_group.production
 }
 
 deployment "test13" {
@@ -141,7 +140,6 @@ deployment "test13" {
     prefix           = "test13"
     instances        = 1
   }
-  deployment_group = deployment_group.production
 }
 
 deployment "test14" {
@@ -149,7 +147,6 @@ deployment "test14" {
     prefix           = "test14"
     instances        = 1
   }
-  deployment_group = deployment_group.production
 }
 
 deployment "test15" {
@@ -157,7 +154,6 @@ deployment "test15" {
     prefix           = "test15"
     instances        = 1
   }
-  deployment_group = deployment_group.production
 }
 
 deployment_group "production" {
