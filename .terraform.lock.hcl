@@ -44,3 +44,27 @@ provider "registry.terraform.io/hashicorp/random" {
     "zh:c94784f005708890dc6895afd53636ec00ec1e430b15d41e5aebfb1d4b39bd04",
   ]
 }
+
+provider "registry.terraform.io/nfagerlund/bombnull" {
+  version = "4.3.0"
+  hashes = [
+    "h1:HgAxQAOynugB/bIVBs/WxEcXZRzJgapEbP/FP9ORhoc=",
+    "h1:mewawfBDKNQbw2Txtiv3xVCiwVQP7g+YYPLmICW7LoM=",
+    "h1:puBVMDsTLkZV7cy0P/s8mBqY7EoT4+/7cf3bWM1++i8=",
+    "zh:1791ec4bb44cdce015084b93a7e7539e29c6f3fe6bfa106840774bc83b6d219a",
+    "zh:21e65af154bed9af6c6023abc90866b189e3518b1fd57e2be1fa85ca78503e4c",
+    "zh:2d062951c0b97f5a7e171fd358b30979dac942ce9be45ef31aa52bf755fd21f7",
+    "zh:3149b70c31f3ab0fa17dc96d59b2fdaa95d2ad84a9511d3fdefd88a0fbb7808f",
+    "zh:39e122b02fcc16f8a319a53c56c6134902ea63677299fefc6f37935e30e00a74",
+    "zh:498488cf0ec9dc53b99a7b2ee50f7565ed0ae5f09885361dc34060780d64ac96",
+    "zh:78d5eefdd9e494defcb3c68d282b8f96630502cac21d1ea161f53cfe9bb483b3",
+    "zh:81448ef6bebc1026a6c56a1d13358b06a7e15f246756c0f5c296322fac296687",
+    "zh:b44f13567062006d0fdd75bfefe938e203528cf35191a1f699b9e556bbf87496",
+    "zh:cf778fa1da90d1464ab134f829f906e0bbe1abb7df3e1fe4a4afdf70ee461810",
+    "zh:d4d7fce1b382a1791d981c67444e0bc6171f6fde18230f925b7e90f76c7305e8",
+    "zh:d4ed36a0b2db52a9933f73ed2548a892cc2b5cb6443180aa86bd9b7d06f178cc",
+    "zh:ee0ef4e9bfbc4230ee8979e2af8c79e4c160b324333c3a6c1a44fb9aa178d1a5",
+    "zh:f7a4ed7276084f947f61f650f2dbae30491254306b0e06b5d88ae2be818cb55d",
+    "zh:fd9952047249c4443f4b69e74442a5be25799bb6cf842ff72287309a6b206fc2",
+  ]
+}

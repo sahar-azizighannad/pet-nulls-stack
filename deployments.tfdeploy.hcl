@@ -1,141 +1,214 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-deployment "simple" {
+locals {
+  mass_update = "yoooooooooo"
+}
+
+# Twelve simples
+deployment "simple_bomb_rowdy1" {
   inputs = {
     prefix           = "simple"
     instances        = 1
+    bomb_every_time = true
+    bomb_create = true
+    bomb_update = true
+    bomb_delete = false
+  }
+  deployment_group = deployment_group.yolo
+}
+
+deployment "simple_bomb_rowdy2" {
+  inputs = {
+    prefix           = "simple2"
+    instances        = 1
+    bomb_every_time = true
+    bomb_create = true
+    bomb_update = true
+    bomb_delete = false
+  }
+  deployment_group = deployment_group.normal
+}
+
+deployment "simple_bomb_once1" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    bomb_every_time = false
+    bomb_create = false
+    bomb_update = true
+    bomb_delete = false
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.yolo
+}
+
+deployment "simple_bomb_once2" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    bomb_every_time = false
+    bomb_create = false
+    bomb_update = true
+    bomb_delete = false
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.normal
+}
+
+deployment "simple_bomb_once3" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    bomb_every_time = false
+    bomb_create = false
+    bomb_update = true
+    bomb_delete = false
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.cautious
+}
+
+deployment "simple_bomb_once4" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    bomb_every_time = false
+    bomb_create = false
+    bomb_update = true
+    bomb_delete = false
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.cautious
+}
+
+deployment "simple_bomb_once_5" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    bomb_every_time = false
+    bomb_create = false
+    bomb_update = true
+    bomb_delete = false
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.cautious
+}
+
+deployment "simple8" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.cautious
+}
+
+deployment "simple9" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.normal
+}
+
+deployment "simple10" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.normal
+}
+
+deployment "simple11" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.yolo
+}
+
+deployment "simple12" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    inplace_update = local.mass_update
+  }
+  deployment_group = deployment_group.yolo
+}
+
+# No explicit deployment group
+deployment "simple13" {
+  inputs = {
+    prefix           = "simple"
+    instances        = 1
+    inplace_update = local.mass_update
   }
 }
 
-deployment "complex" {
+deployment "complex1" {
   inputs = {
     prefix           = "complex"
-    instances        = 3
+    instances        = 4
+    inplace_update = local.mass_update
   }
+  deployment_group = deployment_group.yolo
 }
 
-deployment "test" {
+deployment "complex2" {
   inputs = {
-    prefix           = "test"
-    instances        = 1
+    prefix           = "complenx"
+    instances        = 4
+    inplace_update = local.mass_update
   }
+  deployment_group = deployment_group.normal
 }
 
-deployment "stg" {
+deployment "complex3" {
   inputs = {
-    prefix           = "stg"
-    instances        = 1
+    prefix           = "complesx"
+    instances        = 4
+    inplace_update = local.mass_update
   }
+  deployment_group = deployment_group.cautious
 }
 
-deployment "oas" {
-  inputs = {
-    prefix           = "oas"
-    instances        = 1
-  }
-}
-deployment "test1" {
-  inputs = {
-    prefix           = "test1"
-    instances        = 1
-  }
+# Each of these gets four simples and a complex.
+deployment_group "yolo" {
+    eager_plan = "on"
+    failure_tolerance = null
+    auto_approve_checks = [ deployment_auto_approve.basic_yolo ]
 }
 
-deployment "test2" {
-  inputs = {
-    prefix           = "test2"
-    instances        = 1
-  }
+deployment_group "normal" {
+    eager_plan = "on"
+    failure_tolerance = 3
+    auto_approve_checks = [ ]
 }
 
-deployment "test3" {
-  inputs = {
-    prefix           = "test3"
-    instances        = 1
-  }
+deployment_group "cautious" {
+    eager_plan = "off"
+    failure_tolerance = 1
+    auto_approve_checks = [ ]
 }
 
-deployment "test4" {
-  inputs = {
-    prefix           = "test4"
-    instances        = 1
-  }
+
+deployment_auto_approve "basic_yolo" {
+    check {
+        condition = context.operation == "plan" && context.plan.mode != "destroy" && context.success
+        reason = "yoloooooooo"
+    }
 }
 
-deployment "test5" {
-  inputs = {
-    prefix           = "test5"
-    instances        = 1
-  }
+publish_output "complex_latepet" {
+    description = "The deferred evaluation pet ID from complex deployment"
+    value = deployment.complex1.global_pet
 }
 
-deployment "test6" {
-  inputs = {
-    prefix           = "test6"
-    instances        = 1
-  }
-}
-
-deployment "test7" {
-  inputs = {
-    prefix           = "test7"
-    instances        = 1
-  }
-}
-
-deployment "test8" {
-  inputs = {
-    prefix           = "test8"
-    instances        = 1
-  }
-}
-
-deployment "test9" {
-  inputs = {
-    prefix           = "test9"
-    instances        = 1
-  }
-}
-
-deployment "test10" {
-  inputs = {
-    prefix           = "test10"
-    instances        = 1
-  }
-}
-
-deployment "test11" {
-  inputs = {
-    prefix           = "test11"
-    instances        = 1
-  }
-}
-
-deployment "test12" {
-  inputs = {
-    prefix           = "test12"
-    instances        = 1
-  }
-}
-
-deployment "test13" {
-  inputs = {
-    prefix           = "test13"
-    instances        = 1
-  }
-}
-
-deployment "test14" {
-  inputs = {
-    prefix           = "test14"
-    instances        = 1
-  }
-}
-
-deployment "test15" {
-  inputs = {
-    prefix           = "test15"
-    instances        = 1
-  }
+publish_output "simple_latepet" {
+    description = "deferred pet id from simple"
+    value = deployment.simple10.global_pet
 }
