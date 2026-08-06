@@ -158,7 +158,7 @@ deployment "test15" {
 
 deployment_group "production" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
-  failure_tolerance = 0
+  failure_tolerance = 1
 }
 
 deployment_auto_approve "no_destroy" {
