@@ -128,34 +128,6 @@ deployment "test11" {
   deployment_group = deployment_group.production
 }
 
-deployment "test12" {
-  inputs = {
-    prefix           = "test12"
-    instances        = 1
-  }
-}
-
-deployment "test13" {
-  inputs = {
-    prefix           = "test13"
-    instances        = 1
-  }
-}
-
-deployment "test14" {
-  inputs = {
-    prefix           = "test14"
-    instances        = 1
-  }
-}
-
-deployment "test15" {
-  inputs = {
-    prefix           = "test15"
-    instances        = 1
-  }
-}
-
 deployment_group "production" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
   failure_tolerance = 1
