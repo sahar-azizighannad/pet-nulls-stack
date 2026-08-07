@@ -9,6 +9,14 @@ deployment "simple" {
   deployment_group = deployment_group.production
 }
 
+deployment "simple_test" {
+  inputs = {
+    prefix           = "simple_test"
+    instances        = 2
+  }
+  deployment_group = deployment_group.production
+}
+
 deployment "complex" {
   inputs = {
     prefix           = "complex"
