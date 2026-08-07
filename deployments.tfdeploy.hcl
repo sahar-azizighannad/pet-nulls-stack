@@ -74,7 +74,7 @@ deployment "simple_bomb_once4" {
     prefix           = "simple"
     instances        = 1
     bomb_every_time = true
-    bomb_create = false
+    bomb_create = true
     bomb_update = true
     bomb_delete = false
     inplace_update = local.mass_update
@@ -87,7 +87,7 @@ deployment "simple_bomb_once_5" {
     prefix           = "simple"
     instances        = 1
     bomb_every_time = true
-    bomb_create = false
+    bomb_create = true
     bomb_update = true
     bomb_delete = false
     inplace_update = local.mass_update
