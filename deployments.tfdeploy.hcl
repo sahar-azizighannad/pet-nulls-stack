@@ -190,7 +190,6 @@ deployment_group "normal" {
 }
 
 deployment_group "cautious" {
-    eager_plan = "on"
     failure_tolerance = 1
     auto_approve_checks = [ ]
 }
