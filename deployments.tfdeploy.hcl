@@ -86,7 +86,7 @@ deployment "simple_bomb_once_5" {
   inputs = {
     prefix           = "simple"
     instances        = 1
-    bomb_every_time = true
+    bomb_every_time = false
     bomb_create = true
     bomb_update = true
     bomb_delete = false
