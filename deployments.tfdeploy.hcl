@@ -79,55 +79,6 @@ deployment "test5" {
   }
   deployment_group = deployment_group.production
 }
-
-deployment "test6" {
-  inputs = {
-    prefix           = "test6"
-    instances        = 1
-  }
-  deployment_group = deployment_group.production
-}
-
-deployment "test7" {
-  inputs = {
-    prefix           = "test7"
-    instances        = 1
-  }
-  deployment_group = deployment_group.production
-}
-
-deployment "test8" {
-  inputs = {
-    prefix           = "test8"
-    instances        = 1
-  }
-  deployment_group = deployment_group.production
-}
-
-deployment "test9" {
-  inputs = {
-    prefix           = "test9"
-    instances        = 1
-  }
-  deployment_group = deployment_group.production
-}
-
-deployment "test10" {
-  inputs = {
-    prefix           = "test10"
-    instances        = 1
-  }
-  deployment_group = deployment_group.production
-}
-
-deployment "test11" {
-  inputs = {
-    prefix           = "test11"
-    instances        = 1
-  }
-  deployment_group = deployment_group.production
-}
-
 deployment_group "production" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
   failure_tolerance = 1
