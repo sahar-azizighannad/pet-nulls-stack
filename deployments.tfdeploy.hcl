@@ -26,7 +26,7 @@ deployment "complex" {
 
 deployment_group "production" {
   auto_approve_checks = [ ]
-  failure_tolerance = 7
+  failure_tolerance = 0
   eager_plan = "off"
 }
 
