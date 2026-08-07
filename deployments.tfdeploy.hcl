@@ -60,7 +60,7 @@ deployment "simple_bomb_once3" {
   inputs = {
     prefix           = "simple"
     instances        = 1
-    bomb_every_time = false
+    bomb_every_time = true
     bomb_create = false
     bomb_update = true
     bomb_delete = false
@@ -73,7 +73,7 @@ deployment "simple_bomb_once4" {
   inputs = {
     prefix           = "simple"
     instances        = 1
-    bomb_every_time = false
+    bomb_every_time = true
     bomb_create = false
     bomb_update = true
     bomb_delete = false
@@ -86,7 +86,7 @@ deployment "simple_bomb_once_5" {
   inputs = {
     prefix           = "simple"
     instances        = 1
-    bomb_every_time = false
+    bomb_every_time = true
     bomb_create = false
     bomb_update = true
     bomb_delete = false
