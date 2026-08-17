@@ -1,141 +1,98 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
-
-deployment "simple" {
-  inputs = {
-    prefix           = "simple"
-    instances        = 1
+deployment_auto_approve "allow_plans" {
+  check {
+    condition = context.operation == "plan"
+    reason    = "Plan removes ${context.plan.changes.remove} resources."
   }
 }
-
-deployment "complex" {
-  inputs = {
-    prefix           = "complex"
-    instances        = 3
+deployment_auto_approve "allow_applies" {
+  check {
+    condition = context.operation == "apply"
+    reason    = "Apply removes ${context.plan.changes.remove} resources."
   }
 }
-
-deployment "test" {
-  inputs = {
-    prefix           = "test"
-    instances        = 1
-  }
+deployment_group "deployment_1_group_new" {
+  failure_tolerance = 1
+  auto_approve_checks = [deployment_auto_approve.allow_plans, deployment_auto_approve.allow_applies]
 }
-
-deployment "stg" {
+deployment "deployment_1" {
   inputs = {
-    prefix           = "stg"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-
-deployment "oas" {
+deployment "deployment_2" {
   inputs = {
-    prefix           = "oas"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-deployment "test1" {
+deployment "deployment_3" {
   inputs = {
-    prefix           = "test1"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-
-deployment "test2" {
+deployment "deployment_4" {
   inputs = {
-    prefix           = "test2"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-
-deployment "test3" {
+deployment "deployment_5" {
   inputs = {
-    prefix           = "test3"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-
-deployment "test4" {
+deployment "deployment_6" {
   inputs = {
-    prefix           = "test4"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-
-deployment "test5" {
+deployment "deployment_7" {
   inputs = {
-    prefix           = "test5"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-
-deployment "test6" {
+deployment "deployment_8" {
   inputs = {
-    prefix           = "test6"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-
-deployment "test7" {
+deployment "deployment_9" {
   inputs = {
-    prefix           = "test7"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
+  deployment_group = deployment_group.deployment_1_group_new
 }
-
-deployment "test8" {
+deployment "deployment_10" {
   inputs = {
-    prefix           = "test8"
-    instances        = 1
+    pet_resources_per_component  = 1
+    # Append nulls_instances-1 because 1 sleep resource is already there
+    null_resources_per_component = 0
   }
-}
-
-deployment "test9" {
-  inputs = {
-    prefix           = "test9"
-    instances        = 1
-  }
-}
-
-deployment "test10" {
-  inputs = {
-    prefix           = "test10"
-    instances        = 1
-  }
-}
-
-deployment "test11" {
-  inputs = {
-    prefix           = "test11"
-    instances        = 1
-  }
-}
-
-deployment "test12" {
-  inputs = {
-    prefix           = "test12"
-    instances        = 1
-  }
-}
-
-deployment "test13" {
-  inputs = {
-    prefix           = "test13"
-    instances        = 1
-  }
-}
-
-deployment "test14" {
-  inputs = {
-    prefix           = "test14"
-    instances        = 1
-  }
-}
-
-deployment "test15" {
-  inputs = {
-    prefix           = "test15"
-    instances        = 1
-  }
+  deployment_group = deployment_group.deployment_1_group_new
 }
