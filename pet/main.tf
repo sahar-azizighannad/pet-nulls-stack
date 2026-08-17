@@ -9,7 +9,11 @@ resource "random_pet" "this" {
   length = 3
 
   keepers = {
-    timestamp = "1754893992"
     timestamp = "1786724167"
   }
+}
+
+output "name" {
+  # value = random_pet.this.id
+  value = [for n in random_pet.this: n.id]
 }
