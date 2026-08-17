@@ -1,24 +1,15 @@
-# Copyright (c) HashiCorp, Inc.
-# SPDX-License-Identifier: MPL-2.0
-
-terraform {
-  required_providers {
-    random = {
-      source = "hashicorp/random"
-      version = "3.3.2"
-    }
-  }
+variable "no_of_pets" {
+  type = number
 }
 
-variable "prefix" {
-  type = string
-}
-
+# For each prefix, generate a random pet name
 resource "random_pet" "this" {
-  prefix = var.prefix
+  count =  var.no_of_pets
+  prefix = "pet"
   length = 3
-}
 
-output "name" {
-  value = random_pet.this.id
+  keepers = {
+    timestamp = "1754893992"
+    timestamp = "1786724167"
+  }
 }
