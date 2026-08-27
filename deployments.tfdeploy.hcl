@@ -79,6 +79,22 @@ deployment "test5" {
   }
   deployment_group = deployment_group.production
 }
+
+deployment "test6" {
+  inputs = {
+    prefix           = "test5"
+    instances        = 1
+  }
+  deployment_group = deployment_group.production
+}
+
+deployment "test7" {
+  inputs = {
+    prefix           = "test5"
+    instances        = 1
+  }
+  deployment_group = deployment_group.production
+}
 deployment_group "production" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
   failure_tolerance = 1
