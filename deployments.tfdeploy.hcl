@@ -95,9 +95,22 @@ deployment "test7" {
   }
   deployment_group = deployment_group.production
 }
+
+deployment "test8" {
+  inputs = {
+    prefix           = "test8"
+    instances        = 1
+  }
+  deployment_group = deployment_group.staging
+}
+
 deployment_group "production" {
   auto_approve_checks = [ deployment_auto_approve.no_destroy, ]
   failure_tolerance = 1
+}
+deployment_group "staging" {
+  auto_approve_checks = [ ]
+  eager_plan = "off"
 }
 
 deployment_auto_approve "no_destroy" {
