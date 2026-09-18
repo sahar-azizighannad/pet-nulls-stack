@@ -139,3 +139,7 @@ deployment "test15" {
     instances        = 1
   }
 }
+
+deployment_group "name" {
+  auto_approve_checks = [  ]
+}
