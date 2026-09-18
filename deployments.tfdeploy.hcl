@@ -6,6 +6,7 @@ deployment "simple" {
     prefix           = "simple"
     instances        = 1
   }
+  deployment_group = "name"
 }
 
 deployment "complex" {
